@@ -1,0 +1,35 @@
+.cuisine__checkbox__filter__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 3.7rem 0rem;
+}
+
+.cuisine__checkbox__filter__container label {
+  font-size: 1.7rem;
+  font-weight: 500;
+}
+
+
+.cuisine__checkbox__filter__container input {
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  background-color: red;
+  position: relative;
+}
+
+.cuisine__checkbox__filter__container input:checked::after {
+  content: "✅";
+  background-color: lightgreen;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+

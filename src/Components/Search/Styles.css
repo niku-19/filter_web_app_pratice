@@ -1,0 +1,27 @@
+.search__container {
+  max-width: 100%;
+  padding: 1rem 2rem;
+  margin: auto auto;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.search__icon {
+  font-size: 2.7rem;
+  font-weight: 800;
+  fill: gray;
+}
+
+.search__container input {
+  width: 100%;
+  padding: 1rem 2rem;
+  border: 1px solid #000;
+  font-size: 2.7rem;
+  outline: none;
+  border: 0;
+  background-color: transparent;
+  border-bottom: 1px solid gray;
+  font-family: 'Satisfy', cursive;
+  font-weight: bold;
+}
