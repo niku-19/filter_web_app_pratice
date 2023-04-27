@@ -1,41 +1,50 @@
 export const categoryList = [
   {
-    id: 1,
+    cId: 1,
     value: "place",
     label: "🚩 Places",
+    active: true,
   },
   {
-    id: 2,
+    cId: 2,
     value: "dish",
     label: "🍕 Dishes",
+    active: false,
   },
 ];
 
+
+
 export const ratingList = [
   {
-    id: 1,
+    rId: 1,
     value: "1",
     label: "1🌟",
+    active: false,
   },
   {
-    id: 2,
+    rId: 2,
     value: "2",
     label: "2🌟",
+    active: false,
   },
   {
-    id: 3,
+    rId: 3,
     value: "3",
     label: "3🌟",
+    active: false,
   },
   {
-    id: 4,
+    rId: 4,
     value: "4",
     label: "4🌟",
+    active: false,
   },
   {
-    id: 5,
+    rId: 5,
     value: "5",
     label: "5🌟",
+    active: false,
   },
 ];
 

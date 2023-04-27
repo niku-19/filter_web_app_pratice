@@ -1,12 +1,24 @@
-import React from "react";
 import "./checkbox.css"
 import { useProduct } from "../../Context/Product";
-const InputCheckBox = ({name}) => {
-  const {hadleFilterInput} = useProduct()
+const InputCheckBox = (props) => {
+  const { dispatch } = useProduct();
+
+  const handleInputCheckBox = (checkbox) => {
+    dispatch({type:'HANDLE_CHECKED_CHECKBOX' , payload : checkbox})
+    dispatch({
+      type: "HANDLE_FILTER_WITH_CUISINE_DATA"});
+  }
+
+  
+
   return (
     <div className="cuisine__checkbox__filter__container">
-      <label>{name}</label>
-      <input value={name} onChange={(e) => hadleFilterInput(e)} type="checkbox" />
+      <label>{props.Data.label}</label>
+      <input
+        value={props.Data.label}
+        onChange={() => handleInputCheckBox(props.Data)}
+        type="checkbox"
+      />
     </div>
   );
 };

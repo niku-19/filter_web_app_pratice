@@ -14,8 +14,9 @@ h1 {
 
 .rating__button {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
+  margin: 2rem 0rem;
 }
 
 .price__scroll input[type="range"] {
