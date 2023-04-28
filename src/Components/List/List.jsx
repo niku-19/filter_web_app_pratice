@@ -11,23 +11,30 @@ const List = () => {
   }, []);
 
   return (
-    <div className="grid__container">
-      {productData.updatedData ? (
-        <>
-          {productData.updatedData
-            .filter((eachProduct) =>
-              eachProduct.title
-                .toLowerCase()
-                .includes(productData.searchQuery.toLowerCase())
-            )
-            .map((eachProduct) => {
-              return <ProductCard key={eachProduct.id} data={eachProduct} />;
-            })}
-        </>
-      ) : (
-        <h1> try again </h1>
+    <>
+      {productData.updatedData.length === 0 && (
+        <div className="image__container">
+          <img src="/images/gif/empty.gif" alt="" />
+        </div>
       )}
-    </div>
+      <div className="grid__container">
+        {productData.updatedData ? (
+          <>
+            {productData.updatedData
+              .filter((eachProduct) =>
+                eachProduct.title
+                  .toLowerCase()
+                  .includes(productData.searchQuery.toLowerCase())
+              )
+              .map((eachProduct) => {
+                return <ProductCard key={eachProduct.id} data={eachProduct} />;
+              })}
+          </>
+        ) : (
+          <h1> try again </h1>
+        )}
+      </div>
+    </>
   );
 };
 

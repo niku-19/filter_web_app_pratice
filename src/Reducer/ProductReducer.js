@@ -3,23 +3,7 @@ import { categoryList, ratingList } from "../Data/Data";
 export const INITIAL_STATE = {
   data: [],
   updatedData: [],
-  appliedFilter: [
-    {
-      id: 1,
-      category: "category",
-      apply: false,
-    },
-    {
-      id: 2,
-      category: "cuisine",
-      apply: false,
-    },
-    {
-      id: 3,
-      category: "rating",
-      apply: false,
-    },
-  ],
+  appliedFilter: [],
   filterWithCategory: [],
   filterWithRatingList: [],
   searchQuery: "",
@@ -80,14 +64,21 @@ export const reducerFunc = (state, { type, payload }) => {
         (acc, cur) => (cur.apply === true ? [...acc, cur.label] : [...acc]),
         []
       );
-      const filterDataWithCuisine = state.data.filter((eachProduct) =>
-        appliedFilterCuisineName.includes(eachProduct.cuisine)
+
+      const filtedDataAccToCategory = state.data.filter((eachCategory) =>
+        state.appliedFilter.includes(eachCategory.category)
+      );
+
+      const filterDataWithCuisine = filtedDataAccToCategory.filter(
+        (eachProduct) => appliedFilterCuisineName.includes(eachProduct.cuisine)
       );
 
       return {
         ...state,
         updatedData:
-          filterDataWithCuisine.length > 0 ? filterDataWithCuisine : state.data,
+          filterDataWithCuisine.length > 0
+            ? filterDataWithCuisine
+            : filtedDataAccToCategory,
       };
     }
     case "ACTIVE_CATEGORY_BUTTON": {
@@ -116,6 +107,7 @@ export const reducerFunc = (state, { type, payload }) => {
           filterDataWithCategory.length > 0
             ? filterDataWithCategory
             : state.data,
+        appliedFilter: filterCategoryListName,
       };
     }
     case "ACTIVE_CATEGORY_RATING_BUTTON": {
@@ -134,21 +126,32 @@ export const reducerFunc = (state, { type, payload }) => {
         []
       );
 
-      const filterDataWithRating = state.data.filter((eachProduct) =>
-        filterWithRatingNumberList.includes("" + eachProduct.rating)
+      const filtedDataAccToCategory = state.data.filter((eachCategory) =>
+        state.appliedFilter.includes(eachCategory.category)
       );
+
+      const filterDataWithRating = filtedDataAccToCategory.filter(
+        (eachProduct) =>
+          filterWithRatingNumberList.includes("" + eachProduct.rating)
+      );
+      console.log("🚀 ~ file: ProductReducer.js:137 ~ reducerFunc ~ filterDataWithRating:", filterDataWithRating)
 
       return {
         ...state,
         updatedData:
-          filterDataWithRating.length > 0 ? filterDataWithRating : state.data,
+          filterDataWithRating.length !== 0
+            ? filterDataWithRating
+            : filtedDataAccToCategory,
       };
     }
     case "HANDLE_PRICE_FILTER": {
       const { minPrice, currentPrice } = payload;
+      const filtedDataAccToCategory = state.data.filter((eachCategory) =>
+        state.appliedFilter.includes(eachCategory.category)
+      );
       return {
         ...state,
-        updatedData: state.data.filter(
+        updatedData: filtedDataAccToCategory.filter(
           (eachProduct) =>
             eachProduct.price <= currentPrice && eachProduct.price >= minPrice
         ),

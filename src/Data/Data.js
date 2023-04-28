@@ -3,13 +3,13 @@ export const categoryList = [
     cId: 1,
     value: "place",
     label: "🚩 Places",
-    active: true,
+    active: false,
   },
   {
     cId: 2,
     value: "dish",
     label: "🍕 Dishes",
-    active: false,
+    active: true,
   },
 ];
 

@@ -11,7 +11,7 @@ const Search = () => {
         <input
           type="text"
           placeholder="Woodland Hills"
-          value={productData.searchQuery}
+          value={productData.searchQuery || ""}
           onChange={(e) =>
             dispatch({ type: "HANDLE_SEARCH_FILTER", payload: e.target.value })
           }
