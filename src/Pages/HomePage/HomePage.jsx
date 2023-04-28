@@ -1,12 +1,13 @@
 import React from "react";
-import Search from "../../Components/Search/search";
+
 import Filter from "../../Components/filter/Filter";
 import List from "../../Components/List/List";
+import SearchFilter from "../../Components/SearchFilter/SearchFilter";
 
 const HomePage = () => {
   return (
     <div className="container">
-      <Search />
+      <SearchFilter/>
       <div className="filter__list__container">
         <div className="filter__container">
           <Filter />

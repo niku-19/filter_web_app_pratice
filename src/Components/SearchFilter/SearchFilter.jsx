@@ -1,8 +1,10 @@
 import React from "react";
-import { BiSearchAlt } from "react-icons/bi";
-import "./Styles.css";
 import { useProduct } from "../../Context/Product";
-const Search = () => {
+import { BiSearchAlt } from "react-icons/bi"
+
+import "./Styles.css"
+
+const SearchFilter = () => {
   const { dispatch, productData } = useProduct();
   return (
     <div className="container">
@@ -21,4 +23,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default SearchFilter;
