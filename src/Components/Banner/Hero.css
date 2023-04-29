@@ -66,12 +66,12 @@
     grid-gap: 4rem;
   }
   .banner__details h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-bottom: 2rem;
   }
 
   .banner__details h2 {
-    font-size: 3rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
     line-height: 4rem;
   }
