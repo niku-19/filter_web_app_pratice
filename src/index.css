@@ -26,8 +26,14 @@ body::-webkit-scrollbar {
 .container {
   display: block;
   max-width: 95%;
-  margin: 0 auto;
+  margin: 2rem auto;
   
+}
+
+.main__container {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+  padding: 4rem 0rem;
+  border-radius: 1rem;
 }
 
 .filter__list__container {
